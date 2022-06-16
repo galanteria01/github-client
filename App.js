@@ -1,21 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import AppStacks from './stacks/AppStacks';
+import AuthStacks from './stacks/AuthStacks';
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/user/userSlice';
 
 export default function App() {
+  const user = useSelector(selectUser)
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      {
+        Object.keys(user).length !== 0 ? (
+          <AppStacks />
+        ) : (
+          <AuthStacks />
+        )
+      }
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
