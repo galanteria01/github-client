@@ -1,13 +1,15 @@
 import React from "react";
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Octokit } from "@octokit/core";
 import { useDispatch } from "react-redux";
 import { setUser } from "../features/user/userSlice";
-
-export default function Login({ navigation }) {
+import Snackbar from 'react-native-snackbar-component';
+export default function Login() {
   const [token, setToken] = React.useState("");
+  const [snackIsVisible, setSnackIsVisible] = React.useState(false);
   const dispatch = useDispatch()
+
   function validateToken(token) {
     return /ghp_([a-zA-Z0-9]*$)/.test(token) && token.length == 40;
   }
@@ -25,12 +27,13 @@ export default function Login({ navigation }) {
         email: data.email
       }));
     } else {
+      setSnackIsVisible(true);
       console.log("Invalid token");
       setToken("");
     }
   }
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Image
         source={require("../assets/images/github.png")}
         style={styles.logo}
@@ -45,8 +48,16 @@ export default function Login({ navigation }) {
       <TouchableOpacity style={styles.button} onPress={loginUser}>
         <Text style={styles.text}>Authorize</Text>
       </TouchableOpacity>
-    </SafeAreaView>
-  )
+      <Snackbar
+        visible={snackIsVisible}
+        textMessage="Invalid Token Entered"
+        actionHandler={() => {
+          setSnackIsVisible(false);
+        }}
+        actionText="Close"
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

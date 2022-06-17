@@ -8,7 +8,9 @@ const Tab = createBottomTabNavigator();
 
 export default function Tabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      
+    >
       <Tab.Screen
         name="Home"
         component={Home}
@@ -16,16 +18,8 @@ export default function Tabs() {
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" color={color} size={size} />
-          )
-        }} />
-      <Tab.Screen
-        name="Recents"
-        component={Recents}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="albums" color={color} size={size} />
-          )
+          ),
+          tabBarActiveTintColor: '#333',
         }} />
       <Tab.Screen
         name="Profile"
@@ -34,7 +28,8 @@ export default function Tabs() {
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person" color={color} size={size} />
-          )
+          ),
+          tabBarActiveTintColor: '#333',
         }} />
     </Tab.Navigator>
   );
