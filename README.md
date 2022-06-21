@@ -16,9 +16,12 @@ A React Native client for github based on token authorization.
 - [x] Store user data and token to redux store 
 
 ## Screenshots
-![](https://raw.githubusercontent.com/galanteria01/github-client/master/.github/assets/image1.jpg)
-![](https://raw.githubusercontent.com/galanteria01/github-client/master/.github/assets/image2.jpg)
-![](https://raw.githubusercontent.com/galanteria01/github-client/master/.github/assets/image3.jpg)
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/galanteria01/github-client/master/.github/assets/image1.jpg" width="300" />
+  <img src="https://raw.githubusercontent.com/galanteria01/github-client/master/.github/assets/image2.jpg" width="300" /> 
+  <img src="https://raw.githubusercontent.com/galanteria01/github-client/master/.github/assets/image3.jpg" width="300" />
+</p>
 
 ## How to test the software
 
