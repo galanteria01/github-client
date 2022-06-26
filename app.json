@@ -2,6 +2,9 @@
   "expo": {
     "name": "github-client",
     "slug": "github-client",
+    "splash" : {
+      "image": "./assets/image/github.png"
+    },
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"

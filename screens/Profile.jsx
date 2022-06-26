@@ -22,8 +22,8 @@ export default function Profile() {
   })
 
   async function getUserData() {
-    const { data } = await octokit.request("/user")
-    setUserData(data)
+    const { data: userData } = await octokit.request("/user")
+    setUserData(userData)
   }
 
   useEffect(() => {

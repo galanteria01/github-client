@@ -19,8 +19,8 @@ export default function Home() {
   })
 
   async function getRepos() {
-    const { data } = await octokit.request("/user/repos")
-    setRepos(data)
+    const { data: repos } = await octokit.request("/user/repos")
+    setRepos(repos)
   }
 
   useEffect(() => {
